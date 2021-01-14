@@ -2,15 +2,13 @@ version: '3.8'
 
 services:
   bibliotecadb:
-    image: mysql
+    image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - 3306:3306
     volumes:
       - ./.docker/mysql/core:/var/lib/mysql
-    networks:
-      - bibliotecanet
 
   bibliotecaadmin:
     image: phpmyadmin
@@ -18,8 +16,6 @@ services:
       - PMA_ARBITRARY=1
     ports:
       - 9080:80
-    networks:
-      - bibliotecanet
 
   bibliotecamq:
     image: rabbitmq:3-management
@@ -32,10 +28,3 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
-    networks:
-      - bibliotecanet
-networks:
-  bibliotecanet:
-    driver: bridge
-    ipam:
-      driver: default

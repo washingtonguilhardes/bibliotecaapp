@@ -1,20 +1,31 @@
 {
-  "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/backend/src",
   "monorepo": true,
   "root": "apps/backend",
+  "sourceRoot": "apps/backend/src",
   "compilerOptions": {
-    "webpack": true,
-    "tsConfigPath": "apps/backend/tsconfig.app.json"
+    "webpack": false,
+    "tsConfigPath": "apps/backend/tsconfig.app.json",
+    "plugins": [
+      {
+        "name": "@nestjs/graphql",
+        "options": {
+          "typeFileNameSuffix": [
+            ".input.ts",
+            ".args.ts"
+          ],
+          "introspectComments": true
+        }
+      }
+    ]
   },
   "projects": {
-    "email": {
+    "backend": {
       "type": "application",
-      "root": "apps/email",
+      "root": "apps/backend",
       "entryFile": "main",
-      "sourceRoot": "apps/email/src",
+      "sourceRoot": "apps/backend/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/email/tsconfig.app.json"
+        "tsConfigPath": "apps/backend/tsconfig.app.json"
       }
     },
     "api": {
@@ -24,6 +35,15 @@
       "sourceRoot": "apps/api/src",
       "compilerOptions": {
         "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "email": {
+      "type": "application",
+      "root": "apps/email",
+      "entryFile": "main",
+      "sourceRoot": "apps/email/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/email/tsconfig.app.json"
       }
     }
   }
