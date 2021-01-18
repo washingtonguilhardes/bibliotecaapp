@@ -2,7 +2,8 @@ import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { EmailModule } from './email.module';
-
+// import './config/app';
+// import './config/database';
 async function bootstrap() {
   const app = await NestFactory.create(EmailModule);
   const configService = app.get(ConfigService);

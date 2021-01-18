@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "gcloud": {
+      "type": "library",
+      "root": "libs/gcloud",
+      "entryFile": "index",
+      "sourceRoot": "libs/gcloud/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/gcloud/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}

@@ -36,3 +36,5 @@ lerna-debug.log*
 .docker/rabbitmq/data/
 .docker/rabbitmq/logs/
 .docker/mysql/
+
+.google
